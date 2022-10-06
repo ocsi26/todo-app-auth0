@@ -3,9 +3,16 @@ import Image from 'next/image'
 import Navbar from '../components/Navbar'
 import Todo from '../components/Todo';
 import { table, getMinifiedRecord, getMinifiedRecords } from './api/utils/Airtable'
+import { TodosContext } from '../contexts/TodoContext';
+import { useEffect, useContext } from 'react';
  
 export default function Home({initialTodos }) {
-  console.log(initialTodos);
+  const {todos, setTodos} = useContext(TodosContext); 
+
+  useEffect(() => {
+    setTodos(initialTodos)
+  }, [])
+
   return (
     <div >   
       <Head>
@@ -18,9 +25,9 @@ export default function Home({initialTodos }) {
       <main>
         <h1>Todo App</h1>
         <ul>
-          {initialTodos.map((todo) => (
-            <Todo key={todo.id} todo={todo}/>
-          ))}
+          {todos && 
+            todos.map((todo) => <Todo key={todo.id} todo={todo}/>)
+          }
         </ul>
       </main>
     </div>
