@@ -4,6 +4,7 @@ export default async function handler(req, res) {
     const {id} = req.body;
 
     try{
+        console.log("DEBUG: deleteTodo.js - DELETE WAS CALLED - ID: " + id + " and Req ID: " + req.id);
         const deletedRecords = await table.destroy([id]);
         res.status(200);
         res.json(getMinifiedRecord(deletedRecords[0]));
