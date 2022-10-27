@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Navbar from '../components/Navbar'
 import Todo from '../components/Todo';
 import { table, getMinifiedRecord, getMinifiedRecords } from './api/utils/Airtable'
-import { TodosContext } from '../contexts/TodoContext';
+import { TodosContext } from '../contexts/TodosContext';
 import { useEffect, useContext } from 'react';
  
 export default function Home({initialTodos }) {

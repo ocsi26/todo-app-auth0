@@ -57,6 +57,8 @@ const TodosProvider = ({children}) => {
 
     const deleteTodo = async (id ) => {
         try{
+            console.log("Delete called in CONTEXT, with ID: " + id);
+
             const res = await fetch('/api/deleteTodo', {
                 method: 'DELETE',
                 body: JSON.stringify({id}),
@@ -82,4 +84,4 @@ const TodosProvider = ({children}) => {
     }}>{children}</TodosContext.Provider>
 }
 
-export {TodosProvider, TodosContext }
+export {TodosProvider, TodosContext}
