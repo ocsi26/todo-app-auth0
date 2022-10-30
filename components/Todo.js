@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { TodosContext } from '../contexts/TodosContext';
-import { useContext } from 'react';
 
 export default function Todo({todo}){
     const {updateTodo, deleteTodo} = useContext(TodosContext);
@@ -20,7 +19,7 @@ export default function Todo({todo}){
             <p className={`flex-1 text-gray-800' ${todo.fields.completed ? 'line-through' : ''}`}>
                 {todo.fields.description}
             </p>            
-            <button type="button" id="delete" onClick={() => deleteTodo(todo.id)} className="rounded text-sm bg-red-500 hover:bg-red-600 py-1 px-2 text-white">Delete</button>
+            <button type="button" id="delete" onClick={() => deleteTodo(todo.id)} className="rounded text-sm bg-red-500 hover:bg-red-600 py-1 px-2 text-white">Delete + ${todo.id}</button>
         </li>
     );
 }
